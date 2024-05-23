@@ -1,53 +1,34 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet,Button} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import FakeData from '../components/FakeData';
-
-const Home = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Application Météo</Text>
-      <Image
-        source={{ uri: 'https://media.istockphoto.com/id/868098786/fr/photo/thermom%C3%A8tre-sur-la-neige-indique-des-temp%C3%A9ratures-basses-z%C3%A9ro-basse-temp%C3%A9rature-en-degr%C3%A9s.webp?b=1&s=170667a&w=0&k=20&c=H0oWZROAbr86cjs5VJq-Wo_SQFpksdcRrMdNrhpUXcw=' }}
-        resizeMode="cover"
-        style={styles.image}
-      />
-
-<Button
-      title="Go to Meteo  page "
-      onPress={() =>
-        navigation.navigate('Meteo')
-      }
-      />
-  <FakeData />
-    </View>
-  
-    
-  );
+import { View, Text, Button, StyleSheet,ImageBackground } from 'react-native';
+ const image = {uri: 'https://picsum.photos/200/300/?blur'};
+const Home = ({ navigation }) => {
+    return (
+    <ImageBackground  
+     source={image} 
+        resizeMode="cover" 
+        style={styles.image}>
+        <View style={styles.container}>
+            <Text style={styles.text}>Bienvenue à la Méteo App de Riad</Text>
+            <Button title="Aller à Meteo" onPress={() => navigation.navigate('Meteo')} />
+        </View>
+        </ImageBackground>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'powderblue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 40,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  image: {
-    width: 300,
-    height: 300,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        fontSize: 20,
+        marginBottom: 20,
+    },
+    image: {
+      flex: 1,
+      justifyContent: 'center',
+    },
 });
 
 export default Home;
-
-
-   
-       
-  
